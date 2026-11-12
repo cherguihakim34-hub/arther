@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="ARTHER personal AI assistant">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+  <title>ARTHER</title>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark"><span></span><span></span><span></span></div>
+        <div><div class="brand-name">ARTHER</div><div class="brand-sub" data-i18n="subtitle">PERSONAL AI ASSISTANT</div></div>
+      </div>
+      <button class="icon-btn" id="settingsBtn" aria-label="Settings" title="Settings">⚙</button>
+    </header>
+
+    <section class="hero">
+      <div class="orb-wrap">
+        <div class="orb-ring ring-one"></div><div class="orb-ring ring-two"></div>
+        <div class="orb"><div class="orb-core"></div></div>
+      </div>
+      <div class="status" id="status" data-i18n="ready">SYSTEM READY</div>
+      <h1 data-i18n="greeting">At your service.</h1>
+      <p data-i18n="hint">Talk to ARTHER or type a message below.</p>
+    </section>
+
+    <section class="chat-panel" aria-label="Conversation">
+      <div class="chat-head"><span data-i18n="conversation">CONVERSATION</span><button id="clearBtn" class="text-btn" data-i18n="clear">Clear</button></div>
+      <div id="messages" class="messages" aria-live="polite">
+        <div class="message assistant"><div class="avatar">A</div><div class="bubble" data-i18n="welcome">Hello. I am ARTHER. My first version is ready. My advanced AI connection can be added when a secure service is configured.</div></div>
+      </div>
+      <div class="composer">
+        <button id="micBtn" class="round-btn mic" aria-label="Speak">🎙</button>
+        <input id="prompt" type="text" autocomplete="off" data-i18n-placeholder="placeholder" placeholder="Message ARTHER…">
+        <button id="sendBtn" class="round-btn send" aria-label="Send">➤</button>
+      </div>
+      <div class="footnote" data-i18n="privacy">Your conversations are stored on this device in this prototype.</div>
+    </section>
+
+    <footer><span>ARTHER <b>V1.0</b></span><span id="connection">LOCAL MODE</span></footer>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form method="dialog" class="settings">
+      <div class="dialog-head"><h2 data-i18n="settings">Settings</h2><button class="icon-btn" value="cancel">✕</button></div>
+      <label data-i18n="language">Language</label>
+      <select id="language">
+        <option value="en">English</option><option value="ar">العربية</option><option value="fr">Français</option>
+      </select>
+      <label data-i18n="voice">Voice</label>
+      <select id="voiceMode"><option value="male" data-i18n="deepVoice">Deep voice (device voice availability varies)</option></select>
+      <label data-i18n="endpoint">AI service endpoint (optional)</label>
+      <input id="endpoint" type="url" placeholder="https://your-secure-server.example/chat">
+      <p class="small" data-i18n="endpointHelp">Do not put an API key in this app. A secure server is required for advanced online AI.</p>
+      <button class="primary" id="saveSettings" value="default" data-i18n="save">Save settings</button>
+    </form>
+  </dialog>
+  <script src="./app.js"></script>
+</body>
+</html>
